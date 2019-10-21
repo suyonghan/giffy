@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="warningMapper">
+	<select id="getWarningByIsoCode" parameterType="string"
+		resultType="WarningVO">
+		SELECT * FROM warningInfo where
+		isoCode =
+		#{isoCode}
+	</select>
+
+	<insert id="insertWarning" parameterType="WarningVO">
+		INSERT INTO
+		warningInfo(isoCode, wid, countryName, continent, warning, warningArea,
+		writeDate, limitStatus, limitArea)
+		VALUES(#{isoCode}, #{wid},
+		#{countryName},
+		#{continent}, #{warning}, #{warningArea}, #{writeDate},
+		#{limitStatus},
+		#{limitArea})
+	</insert>
+
+	<delete id="deleteWarning" parameterType="string">
+		DELETE FROM warningInfo
+		WHERE wid = #{wid}
+	</delete>
+</mapper>

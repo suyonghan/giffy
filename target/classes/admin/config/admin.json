@@ -1,0 +1,11 @@
+{
+	"url1" : "http://apis.data.go.kr/1262000/AccidentService/getAccidentList",
+	"url2" : "http://apis.data.go.kr/1262000/CountrySafetyService/getCountrySafetyList",
+	"url3" : "http://apis.data.go.kr/1262000/TravelWarningService/getTravelWarningList",
+	"url4" : "http://apis.data.go.kr/1262000/TravelSpecialWarningService/getTravelSpecialWarningList",
+	"serviceKey" : "jV78dsqc54v1kdaXdi5rUjZydaJ7yGgiVq%2BaRbn1yBuK8tam89B4ZGl8arRSjsCb5p0Hd%2BV5lKlH3FYYHeoP7g%3D%3D",
+	"isoCodePath" : "C:\\Users\\student\\Desktop\\s\\s\\eclipse_workspace\\SafeProject\\src\\main\\resources\\admin\\config\\isoCode.json",
+	"riskPath" : "C:\\Users\\student\\Desktop\\s\\s\\eclipse_workspace\\SafeProject\\src\\main\\resources\\admin\\config\\risk.json",
+	"flagPath" : "http://70.12.113.173:8000/traveler/resources/flag/",
+	"geoKey" : "AIzaSyCBfDbOxmNQa_GZPobP4oooZXjBEKyr0Rw"
+}

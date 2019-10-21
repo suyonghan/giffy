@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserMapper">
+	<!-- selectEmail -->
+	<select id="selectEmail" parameterType="String"
+		resultType="UsersVO">
+		SELECT EMAIL FROM USERS_INFO WHERE NICKNAME = #{nickname}
+	</select>
+
+	<select id="selectNickname" parameterType="String"
+		resultType="UsersVO">
+		SELECT NICKNAME FROM USERS_INFO WHERE EMAIL = #{email}
+	</select>
+
+	<select id="selectName" parameterType="String"
+		resultType="UsersVO">
+		SELECT ADMIN FROM USERS_INFO WHERE EMAIL = #{email}
+	</select>
+
+	<update id="updatePassword" parameterType="UsersVO">
+		UPDATE USERS_INFO SET PASSWORD = #{password} WHERE EMAIL = #{email}
+	</update>
+</mapper>

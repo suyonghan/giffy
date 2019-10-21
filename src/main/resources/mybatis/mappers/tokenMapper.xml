@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="tokenMapper">
+	<select id="getTokenByName" parameterType="string"
+		resultType="TokenVO">
+		SELECT tokenId, userName, startDate, expiryDate,
+		serviceKey, state
+		FROM tokenInfo
+		where userName = #{userName}
+	</select>
+
+
+	<select id="getTokenByServiceKey" parameterType="string"
+		resultType="TokenVO">
+		SELECT tokenId, userName, startDate, expiryDate,
+		serviceKey, state
+		FROM tokenInfo
+		where serviceKey = #{serviceKey}
+	</select>
+
+	<insert id="insertToken" parameterType="TokenVO"
+		useGeneratedKeys="true" keyProperty="tokenId">
+		INSERT INTO tokenInfo(userName,
+		startDate, expiryDate, serviceKey, state)
+		VALUES(#{userName},
+		#{startDate}, #{expiryDate}, #{serviceKey}, #{state})
+	</insert>
+
+	<update id="updateToken" parameterType="TokenVO">
+		UPDATE tokenInfo SET
+		state = 'expiration'
+		WHERE tokenId = #{tokenId}
+	</update>
+
+	<delete id="deleteToken" parameterType="string">
+		DELETE FROM tokenInfo
+		WHERE userName = #{userName}
+	</delete>
+</mapper>

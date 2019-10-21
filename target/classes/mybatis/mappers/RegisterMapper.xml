@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="RegisterMapper">
+
+	<!--insert -->
+	<insert id="insert" parameterType="UsersVO">
+ 	INSERT INTO USERS_INFO 
+    		VALUES (#{userNo}, #{email}, #{password}, #{name}, #{nickname}, #{birthdate}, #{job}, #{sex}, #{phone})
+	</insert>
+	<!--닉네임중복  -->
+	<select id="searchNickname" parameterType="string" resultType="UsersVO">
+		SELECT * FROM USERS_INFO WHERE NICKNAME = #{nickname}
+	</select>
+	<!--Email중복-->
+	<select id="searchEmail" parameterType="string" resultType="UsersVO">
+		SELECT * FROM USERS_INFO WHERE EMAIL = #{email}
+	</select>
+	<!--아이디 중복 -->
+	<select id="searchid" parameterType="string" resultType="UsersVO">
+		SELECT * FROM USERS_INFO WHERE ID = #{id}
+	</select>
+ </mapper>

@@ -1,0 +1,11 @@
+{
+	"url1" : "http://apis.data.go.kr/1262000/AccidentService/getAccidentList",
+	"url2" : "http://apis.data.go.kr/1262000/CountrySafetyService/getCountrySafetyList",
+	"url3" : "http://apis.data.go.kr/1262000/TravelWarningService/getTravelWarningList",
+	"url4" : "http://apis.data.go.kr/1262000/TravelSpecialWarningService/getTravelSpecialWarningList",
+	"serviceKey" : "°ø°øAPIServiceKey",
+	"isoCodePath" : "isoCodePath",
+	"riskPath" : "riskPath",
+	"flagPath" : "http://IPaddess:8000/traveler/resources/flag/",
+	"geoKey" : "google geocode ServiceKey"
+}

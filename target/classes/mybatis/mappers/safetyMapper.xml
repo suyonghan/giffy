@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="safetyMapper">
+	<select id="getSafetyBySid" parameterType="string"
+		resultType="SafetyVO">
+		SELECT sid, isoCode, title, content, writeDate, riskType,
+		remarks FROM
+		safetyInfo where
+		sid =
+		#{sid}
+	</select>
+
+	<select id="getSafetyByIsoCode" parameterType="string"
+		resultType="SafetyVO">
+		SELECT sid, isoCode, title, content, writeDate, riskType,
+		remarks FROM
+		safetyInfo where
+		isoCode =
+		#{isoCode}
+	</select>
+
+	<select id="getSafetyByDate" parameterType="DateVO"
+		resultType="SafetyVO">
+		SELECT sid, isoCode, title, content, writeDate, riskType,
+		remarks FROM
+		safetyInfo where
+		#{startDate} <![CDATA[<=]]> writeDate and
+		#{endDate} <![CDATA[>=]]> writeDate
+	</select>
+
+	<insert id="insertSafety" parameterType="SafetyVO">
+		INSERT INTO
+		safetyInfo(sid, isoCode, title, content, writeDate, remarks, riskType)
+		VALUES(#{sid},#{isoCode},#{title}, #{content}, #{writeDate},
+		#{remarks}, #{riskType})
+	</insert>
+
+	<delete id="deleteSafety" parameterType="string">
+		DELETE FROM safetyInfo
+		WHERE sid = #{sid}
+	</delete>
+</mapper>

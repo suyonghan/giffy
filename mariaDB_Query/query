@@ -1,0 +1,74 @@
+show databases;
+use travel;
+drop table tokenInfo;
+CREATE TABLE IF NOT EXISTS travel.tokenInfo (
+    tokenId  int auto_increment primary key, -- 사용자번호
+    userName  VARCHAR(30) NOT NULL, -- 사용자ID
+    startDate  VARCHAR(30) NOT NULL,     -- 사용자전화번호
+    expiryDate  VARCHAR(30) NOT NULL,
+	serviceKey VARCHAR(50) NOT NULL,
+    state VARCHAR(30) NOT NULL
+);
+
+alter table tokenInfo ADD CONSTRAINT tokenInfo_PK PRIMARY KEY (tokenId);
+ALTER TABLE tokenInfo MODIFY COLUMN tokenId BIGINT NOT NULL AUTO_INCREMENT;
+ALTER TABLE tokenInfo AUTO_INCREMENT = 10000;
+
+select * from travel.tokenInfo;
+
+CREATE TABLE IF NOT EXISTS travel.warningInfo(
+	wid varchar(30) NOT NULL primary key ,
+    isoCode varchar(5),
+    countryName varchar(30) NOT NULL,
+    continent varchar(30) NOT NULL,
+    warning varchar(60),
+    warningArea varchar(500),
+	writeDate varchar(40) NOT NULL,
+    limitStatus varchar(40),
+    limitArea varchar(500)
+);
+
+
+CREATE TABLE IF NOT EXISTS travel.safetyInfo(
+	sid varchar(20) NOT NULL primary key ,
+    isoCode varchar(5),
+	title varchar(100) NOT null,
+    content text(1000),
+    writeDate varchar(20) NOT NULL,
+    riskType varchar(10),
+    remarks varchar(50)
+);
+
+drop table travel.warningInfo;
+drop table travel.safetyInfo;
+
+select * from travel.warninginfo;
+select * from travel.safetyInfo;
+commit;
+
+select * from travel.safetyInfo where writeDate <= '2018-10-25';
+
+
+  CREATE TABLE IF NOT EXISTS travel.USERS_INFO
+   (	userNo INT auto_increment primary key, 
+		EMAIL VARCHAR(20) unique key, 
+		PASSWORD VARCHAR(20), 
+		NAME VARCHAR(20), 
+		NICKNAME VARCHAR(20), 
+		BIRTHDATE VARCHAR(20), 
+		JOB VARCHAR(20), 
+		SEX VARCHAR(20),
+        PHONE VARCHAR(20)
+   ) ;
+
+ALTER TABLE travel.USERS_INFO MODIFY COLUMN userNo INT NOT NULL AUTO_INCREMENT;
+ALTER TABLE travel.USERS_INFO AUTO_INCREMENT = 10000;
+commit;
+drop table travel.USERS_INFO;
+select * from travel.USERS_INFO;
+
+select * from travel.USERS_INFO;
+select * from travel.tokenInfo;
+ 	INSERT INTO travel.USERS_INFO 
+    		VALUES (travel.USERS_INFO.userNo,"s2", "s2", "ss", "ss", "ss", "ss", "ss", "ss");
+
